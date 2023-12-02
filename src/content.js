@@ -17,7 +17,7 @@ function log(text) {
   console.log(`MPACFZ: ${text}`);
 }
 
-log('loaded...');
+log('MPACFZ: loaded...');
 
 let timeTillCloseMs = getCountdownStartTimeMs();
 
@@ -168,9 +168,6 @@ function isPageTextLikeMeetingLaunch() {
   if (pageText.includes('click launch meeting below')) {
     return true;
   }
-  if (pageText.includes('having issues with zoom')) {
-    return true;
-  }
   if (pageText.includes('meeting has been launched')) {
     return true;
   }
@@ -180,12 +177,25 @@ function isPageTextLikeMeetingLaunch() {
   return false;
 }
 
+function isPageTextLikeGlobalProtect() {
+  const pageText = document?.body?.innerText?.toLowerCase() || '';
+  if (pageText.includes('click open globalprotect')) {
+    return true;
+  }
+  if (pageText.includes('authentication complete')) {
+    return true;
+  }
+  return false;
+}
+
 function countDownToClose() {
   timeTillCloseMs -= intervalRateMs;
-  log(`TimeMs left: ${timeTillCloseMs} isPageText=${isPageTextLikeMeetingLaunch()} isSuccess=${isMeetingStatusSuccess()} isPostAttendee=${isPostAttendee()} isWebClientLeave=${isWebClientLeave()}`);
+  log(`TimeMs left: ${timeTillCloseMs} isPageText=${isPageTextLikeMeetingLaunch()} isSuccess=${isMeetingStatusSuccess()} isPostAttendee=${isPostAttendee()} isWebClientLeave=${isWebClientLeave()} isPageTextLikeGlobalProtect=${isPageTextLikeGlobalProtect()}`);
 
   if (isPageTextLikeMeetingLaunch() || isMeetingStatusSuccess() || isPostAttendee() || isWebClientLeave()) {
-    log(`All checks good to auto close`);
+    log(`All checks good to auto close Zoom`);
+  } else if (isPageTextLikeGlobalProtect()) {
+      log(`All checks good to auto close SASE`);
   } else {
     timeTillCloseMs += intervalRateMs; // Put back the time
     return;

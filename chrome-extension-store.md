@@ -39,26 +39,8 @@ https://github.com/ChromeAdmin/meetings-page-auto-closer-for-zoom
 ### Support URL
 https://forms.gle/Y64QCYkRfFd2qVXm7
 
-
 ## Privacy Practices
 ### Single purpose
 Automatically closes the page used to launch Zoom meetings and restores focus to the tab you were on beforehand. Supports pages launched by Zoom and ZoomGov.
 ### Permission justification
 This extension is limited to only run on specific zoom.us and zoomgov.com pages that are shown after joining a meeting, because those are the pages that we show to countdown timer on.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
