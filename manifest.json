@@ -45,6 +45,7 @@
         "*://*.zoom.us/z/*",
         "*://*.zoom.us/postattendee*",
         "*://*.zoom.us/wc/leave*",
+        "*://*.zoom.us/webinar*",
         "*://*.zoomgov.com/a/*",
         "*://*.zoomgov.com/b/*",
         "*://*.zoomgov.com/c/*",
