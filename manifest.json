@@ -74,7 +74,8 @@
         "*://*.zoomgov.com/z/*",
         "*://*.zoomgov.com/postattendee*",
         "*://*.zoomgov.com/wc/leave*",
-        "*://securenetx.autodesk.com/*"
+        "*://securenetx.autodesk.com/*",
+        "*://securenetx-commercial.autodesk.com/*"
       ],
       "js": [
         "src/content.js"
